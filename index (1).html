@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thaddeus Franczyk — Portfolio</title>
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#EEF1F0;
+    --paper-alt:#E2E7E4;
+    --line:#CBD3CE;
+    --teal:#2B6E68;
+    --gold:#C98A3C;
+    --white:#FBFCFB;
+    --max:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    line-height:1.55;
+  }
+  .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;}
+
+  /* ---- Nav ---- */
+  header.site-nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(238,241,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:900px; margin:0 auto; padding:14px 24px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .nav-name{font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink);}
+  .nav-links{display:flex; gap:22px; list-style:none; margin:0; padding:0; font-family:inherit;}
+  .nav-links a{color:var(--ink); text-decoration:none; font-size:0.95rem; opacity:0.75; transition:opacity .15s;}
+  .nav-links a:hover{opacity:1; color:var(--teal);}
+  .nav-toggle{display:none; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--ink);}
+
+  @media (max-width:640px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; background:var(--paper);
+      border-bottom:1px solid var(--line);
+      padding:16px 24px; gap:14px;
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    max-width:var(--max); margin:0 auto; padding:88px 24px 56px;
+    animation:rise .6s ease-out both;
+  }
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+  .hero h1{
+    font-size:clamp(2.2rem,5vw,3.2rem);
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .hero p.title{
+    font-family:inherit; font-style:italic;
+    color:var(--teal); font-size:1.2rem; margin:0 0 4px;
+  }
+  .hero p.affiliation{
+    font-family:'-apple-system',sans-serif;
+    color:#556; font-size:0.95rem; margin:0;
+  }
+
+  section{max-width:var(--max); margin:0 auto; padding:44px 24px; border-top:1px solid var(--line);}
+  section h2{
+    font-size:1.5rem; margin:0 0 18px;
+  }
+
+  /* ---- About ---- */
+  #about p{max-width:65ch;}
+
+  /* ---- Skills ---- */
+  .skills-list{
+    display:flex; flex-wrap:wrap; gap:10px; padding:0; list-style:none; margin:0;
+    font-family:inherit;
+  }
+  .skills-list li{
+    border:1px solid var(--line);
+    background:var(--white);
+    padding:6px 14px;
+    border-radius:3px;
+    font-size:0.95rem;
+  }
+
+  /* ---- Projects ---- */
+  table.projects{width:100%; border-collapse:collapse; font-family:inherit;}
+  table.projects th{
+    text-align:left; font-weight:600; font-size:0.9rem;
+    border-bottom:2px solid var(--ink);
+    padding:8px 10px;
+  }
+  table.projects td{
+    padding:14px 10px; border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.projects tr:hover td{background:var(--paper-alt);}
+  table.projects td.pname{font-weight:600; width:34%;}
+  table.projects td.pdesc{color:#334; font-size:0.97rem;}
+
+  /* ---- Resume ---- */
+  .resume-btn{
+    display:inline-block; margin-top:6px;
+    background:var(--ink); color:var(--white);
+    text-decoration:none; padding:10px 20px;
+    border-radius:3px; font-family:inherit; font-size:0.95rem;
+    transition:background .15s;
+  }
+  .resume-btn:hover{background:var(--teal);}
+
+  /* ---- Contact ---- */
+  #contact ul{list-style:none; padding:0; margin:0;}
+  #contact li{margin-bottom:8px;}
+  #contact a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--gold);}
+  #contact a:hover{color:var(--teal); border-color:var(--teal);}
+
+  footer{
+    text-align:center; padding:30px 24px 50px;
+    font-family:inherit; font-size:0.85rem; color:#667;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Thaddeus Franczyk</a>
+    <button class="nav-toggle sans" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links sans" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div id="top" class="hero">
+  <h1>Thaddeus Franczyk</h1>
+  <p class="title">Accounting &amp; Information Systems Student</p>
+  <p class="affiliation">[University of Utah]</p>
+</div>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    [Write 100–150 words here: your major, career interests, what draws you to AI,
+    and the kind of technical/business problems you like solving. Keep it in your
+    own voice — this is the part employers actually read.]
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+    <li>SQL</li>
+    <li>Git &amp; GitHub</li>
+    <li>Microsoft Excel</li>
+    <li>Data Analytics</li>
+    <li>AI Prompt Engineering</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <table class="projects">
+    <thead>
+      <tr><th>Project</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="pname">AI Business Analysis</td>
+        <td class="pdesc">Analyze business data using ChatGPT. <em>[link coming soon]</em></td>
+      </tr>
+      <tr>
+        <td class="pname">Data Visualization</td>
+        <td class="pdesc">Dashboard built with Tableau. <em>[link coming soon]</em></td>
+      </tr>
+      <tr>
+        <td class="pname">Web Development</td>
+        <td class="pdesc">Responsive Bootstrap website. <em>[link coming soon]</em></td>
+      </tr>
+      <tr>
+        <td class="pname">Process Improvement</td>
+        <td class="pdesc">AI-assisted business workflow redesign. <em>[link coming soon]</em></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="resume">
+  <h2>Resume</h2>
+  <p>Resume coming soon.</p>
+  <!-- Once you have a PDF, upload it to the repo and swap the line above for: -->
+  <!-- <a class="resume-btn" href="resume.pdf" target="_blank">Download Resume (PDF)</a> -->
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <ul class="sans">
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/thaddeusfranczyk" target="_blank">linkedin.com/in/thaddeusfranczyk</a></li>
+    <li>GitHub: <a href="https://github.com/thadfranc" target="_blank">github.com/thadfranc</a></li>
+  </ul>
+</section>
+
+<footer class="sans">
+  Built and maintained by Thaddeus Franczyk · Updated Fall 2026
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links.classList.remove('open'))
+  );
+</script>
+
+</body>
+</html>
