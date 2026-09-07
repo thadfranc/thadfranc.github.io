@@ -3,9 +3,9 @@
 This repository hosts my professional GitHub portfolio for IS 3060.
 
 ## Technologies used
-- HTML5 / CSS3 (no framework — hand-written, responsive layout)
-- Vanilla JavaScript (mobile nav toggle)
-- GitHub Pages (hosting)
+- HTML5 / CSS3 
+- Vanilla JavaScript 
+- GitHub Pages 
 
 ## Website
 https://thadfranc.github.io
